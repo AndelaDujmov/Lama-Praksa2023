@@ -1,1 +1,1 @@
-# Lama-Praksa2023
+# Praksa2023
