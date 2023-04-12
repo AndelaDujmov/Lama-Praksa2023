@@ -1,0 +1,26 @@
+ol{
+    list-style: none;
+    counter-reset: alpha;
+}
+
+ol li::before{
+    counter-increment: alpha;
+    content: counter(alpha, lower-alpha) ") ";
+}
+
+p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
+}
+
+#red{
+    color: red;
+}
+
+#green{
+    color: green;
+}
+
+#blue{
+    color: blue;
+}
