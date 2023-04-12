@@ -6,7 +6,7 @@ let returnAddition = (a, b, c) => {
     return a+b+c;
 }
 
-function dataEntry() {
+let dataEntry = () => {
     var num1 = parseInt(prompt("Unesite cijeli broj!"));
     var num2 = parseInt(prompt("Unesite cijeli broj!"));
     var num3 = parseInt(prompt("Unesite cijeli broj!"));
