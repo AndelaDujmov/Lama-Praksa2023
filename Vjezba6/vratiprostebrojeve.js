@@ -35,7 +35,10 @@ else{
     var primes = returnAllPrimeNumbers(positiveNumber);
 
 
-    console.log("The array of prime numbers is:")
-    primes.forEach(number => console.log(number + ', '));
+    console.log("The array of prime numbers is:");
+
+    for(var i=0;i<primes.length/2;i++){
+        console.log(primes[i] + ", ")
+    }
 }
 
