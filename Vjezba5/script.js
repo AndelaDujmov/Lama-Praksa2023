@@ -23,50 +23,57 @@ var returnMin = (n1, n2) => {
         return n2;
 }
 
-var arr1 = [];
-var arr2 = [];
-var inBetween = [];
-var len = 0;
+var arr1 = new Array();
+var arr2 = new Array();
+var inBetween = new Array();
 
+var mainFunction = () => {
+    var number1 = document.getElementById("data1").value;
+    var number2 = document.getElementById("data2").value;
 
-var size1 = parseInt(prompt("Enter the number of elements in first array!"));
-var size2 = parseInt(prompt("Enter the number of elements in second array!"));
+    arr1[arr1.length] = number1;
+    arr2[arr2.length] = number2;
 
-for(var i=0;i<size1;i++){
-    arr1[i] = parseInt(prompt("Enter first array element:" + (i+1)));
+    arr1.forEach(x => console.log(x));
+    arr2.forEach(x => console.log(x));
 }
 
-for(var i=0;i<size2;i++){
-    arr2[i] = parseInt(prompt("Enter second array element:" + (i+1)));
-}
+var showAll = () => {
 
+    var arith1 = returnArithmeticMean(arr1, arr1.length);
+    var arith2 = returnArithmeticMean(arr2, arr2.length);
 
-var arith1 = returnArithmeticMean(arr1, size1);
-var arith2 = returnArithmeticMean(arr2, size2);
+    var min = returnMin(arith1, arith2);
+    var max = returnMax(arith1, arith2);
 
-var min = returnMin(arith1, arith2);
-var max = returnMax(arith1, arith2);
-
-for(var i=0;i<size1;i++){
-    if(min < arr1[i] && arr1[i] < max){
-        inBetween[len] = arr1[i];
-        len++;
+    for(var i=0;i<arith1.length;i++){
+        if(min < arr1[i] && arr1[i] < max){
+            inBetween[len] = arr1[i];
+            len++;
+        }
+        
     }
+
+    for(var i=0;i<arith2.length;i++){
+        if(min < arr2[i] && arr2[i] < max){
+            inBetween[len] = arr2[i];
+            len++;
+        }   
+    }
+
     
+    if(inBetween.length==0){
+        document.getElementById("result").innerHTML += "<p id='red'>There is no arithmetic mean for these arrays</p>";
+    } 
+    else{
+        for(var j=0;j<content.length;j++){
+            var content = "<p>The numbers inbetween are:</p><br>";
+    
+            content += [...inBetween] + "<br>";
+    
+            document.getElementById("result").innerHTML += content;
+        }
+    }
 }
 
-for(var i=0;i<size2;i++){
-    if(min < arr2[i] && arr2[i] < max){
-        inBetween[len] = arr2[i];
-        len++;
-    }   
-}
-
-if(len==0){
-    document.getElementById("result").innerHTML = "<p id='red'>There is no arithmetic mean for these arrays</p>"
-}
-
-for(var j=0;j<len;j++){
-    document.getElementById("result").innerHTML += "<p>" + inBetween[j] + ", <p>";
-}
 
